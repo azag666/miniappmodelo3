@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyce Jacob - Perfil</title>
+    <title>Rifa VIP - Joyce Jacob: Sua Noite de Tesão!</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Incluindo a biblioteca de QR Code -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* Light gray background */
-        }
-        /* Custom gradient for the button (kept in case it's re-added later) */
-        .gradient-button {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            background-color: #f0f2f5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         /* Custom styles for the top banner background */
         .banner-bg {
-            /* Updated banner image URL */
             background-image: url('https://i.postimg.cc/wvJShRSf/Gsk-Vcj-BX0-AAf-Rb0.jpg');
             background-size: cover;
             background-position: center;
-            height: 150px; /* Adjust height as needed */
+            height: 150px;
             position: relative;
         }
-        /* Style for the active tab indicator */
+        /* Style for the active tab indicator (modified for the raffle context) */
         .tab-active::after {
             content: '';
             display: block;
             width: 80%;
             height: 3px;
-            background-color: #ff7e5f; /* Highlight color */
+            background-color: #ff7e5f;
             margin: auto;
             border-radius: 9999px;
             position: absolute;
@@ -40,21 +40,51 @@
             left: 10%;
             right: 10%;
         }
+
+        /* Estilo customizado para o slider do checkout */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb; /* gray-200 */
+            border-radius: 9999px;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #ff7e5f; /* Cor de destaque */
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid white;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #ff7e5f;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid white;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 min-h-screen">
+
     <div class="max-w-md mx-auto bg-white shadow-lg rounded-b-lg overflow-hidden">
-        <!-- Header Section -->
+        
+        <!-- Header Section (Banner & Profile Info) -->
         <div class="banner-bg relative">
             <div class="absolute inset-0 bg-black bg-opacity-30"></div>
             <div class="absolute top-4 left-4 text-white flex items-center space-x-2 text-sm">
-                <!-- Placeholder for icons/stats -->
-                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg> 174</span>
-                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 22.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg> 185</span>
-                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h2a2 2 0 002-2V4a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2m5-9V3m0 0l3 3m-3-3L9 6m7 6v4m-4 0v4m-6-4v4m0-11V3m0 0L7 6m-3-3L1 6" /></svg> 38.4K</span>
+                <!-- Placeholder for icons/stats (Optional) -->
             </div>
             <div class="absolute bottom-0 left-4 -mb-12">
-                <!-- Updated profile picture URL -->
+                <!-- Profile picture -->
                 <img src="https://i.postimg.cc/wvJShRSf/Gsk-Vcj-BX0-AAf-Rb0.jpg" alt="Profile Picture" class="w-24 h-24 rounded-full border-4 border-white shadow-md">
             </div>
             <div class="absolute top-4 right-4">
@@ -69,59 +99,383 @@
 
         <!-- Profile Info Section -->
         <div class="pt-16 px-4 pb-4 bg-white">
-            <!-- Updated name and username -->
-            <h1 class="text-xl font-semibold text-gray-800">Joyce Jacob</h1>
+            <h1 class="text-2xl font-bold text-gray-800">Joyce Jacob</h1>
             <p class="text-sm text-gray-600 mb-2">@joycejacob</p>
             <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                Tenho 24 anos, Sou sua putinha! Meu conteúdo é completo e EXPLÍCITO! E gosto de fazer você gozar! Amo interagir no chat, vem conversar comigo aqui no meu perfil VIP @joycejacob ❤️
+                Tenho 24 anos, e sim, sou sua putinha! Meu conteúdo é completo e EXPLÍCITO, feito pra você gozar muito! Adoro uma interação no chat, então vem participar dessa rifa VIP e ter uma noite inesquecível comigo! ❤️
             </p>
-
-            <!-- Subscription Button - Removed as requested -->
         </div>
 
-        <!-- Tabs Section -->
-        <div class="flex border-b border-gray-200 bg-white mt-4">
-            <div class="w-1/2 text-center py-3 text-gray-700 font-medium relative tab-active cursor-pointer">
-                251 postagens
+        <!-- Raffle Details Section -->
+        <div class="bg-gray-50 p-6 shadow-inner">
+            <h2 class="text-2xl font-extrabold text-pink-700 mb-4 text-center">🔥 Rifa VIP: Sua Noite de Tesão com Joyce Jacob! 🔥</h2>
+
+            <div class="bg-white rounded-xl shadow-md p-5 border border-gray-200 mb-6 space-y-4">
+                <div class="text-center">
+                    <p class="text-xl font-bold text-pink-600 mb-2">O que te espera se você ganhar:</p>
+                    <ul class="list-none space-y-2 text-gray-800 font-medium text-left mx-auto max-w-xs">
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><span class="font-extrabold">UMA NOITE COMPLETA COM A JOYCE!</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span class="font-extrabold">SEM CAMISINHA!</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg><span class="font-extrabold">ANAL INCLUSO!</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg><span class="font-extrabold">MOTEL PAGO POR ELA!</span></li>
+                    </ul>
+                </div>
+                <p class="text-sm text-gray-600 text-center mt-4">
+                    Você escolhe o motel na sua região e a Joyce vai até você para essa experiência.
+                </p>
+                <div class="bg-yellow-50 text-yellow-800 p-3 rounded-lg text-sm font-semibold text-center shadow-inner animate-pulse">
+                    📅 Sorteio IMPERDÍVEL: 10 de Julho de 2025 - Não perca!
+                </div>
             </div>
-            <div class="w-1/2 text-center py-3 text-gray-500 font-medium cursor-pointer">
-                359 mídias
+
+            <!-- Previews Section (Moved from original profile HTML to break up the raffle section) -->
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <!-- Preview 1 (Image) -->
+                <div class="relative rounded-lg overflow-hidden shadow-md">
+                    <img src="https://i.postimg.cc/Dz5hSG3q/Gr-FQBDe-W4-AAC-wl.jpg" alt="Prévia 1" class="w-full h-48 object-cover">
+                </div>
+                <!-- Preview 2 (Image) -->
+                <div class="relative rounded-lg overflow-hidden shadow-md">
+                    <img src="https://i.postimg.cc/yx3RY67s/Gsk-Vcj-BX0-AAf-Rb0.jpg" alt="Prévia 2" class="w-full h-48 object-cover">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="p-6 bg-white shadow-lg rounded-b-lg">
+            
+            <!-- Payment/Raffle Ticket Selection Section -->
+            <div id="valor-section" class="space-y-6">
+                <h3 class="text-xl font-extrabold text-pink-800 text-center">Garanta sua chance AGORA! Apenas R$1,30 por número!</h3>
+                <p class="text-center text-gray-700 text-sm">
+                    Escolha quantos números você quer. Quanto mais números, MAIOR seu tesão e suas chances de levar a Joyce pra casa!
+                </p>
+
+                <!-- Display de Quantidade e Valor Total -->
+                <div class="text-center my-6">
+                    <span class="text-3xl font-semibold text-gray-700">Você quer <span id="quantidade-display" class="font-extrabold text-pink-600">1</span> número(s)?</span>
+                    <p class="text-5xl font-extrabold text-pink-700 mt-2">TOTAL: R$ <span id="valor-display">1,30</span></p>
+                </div>
+
+                <!-- Slider para Quantidade de Números -->
+                <div class="space-y-3">
+                    <input type="range" id="quantidade-slider" min="1" max="115" value="1" class="w-full">
+                    <div class="flex justify-between text-xs text-gray-500 font-medium">
+                        <span>1 Número</span>
+                        <span>115 Números (Máx. R$149,50)</span>
+                    </div>
+                </div>
+
+                <button id="gerar-btn" class="w-full bg-pink-600 text-white font-bold py-4 px-4 rounded-xl hover:bg-pink-700 focus:outline-none focus:ring-4 focus:ring-pink-300 transition-all transform hover:scale-105 shadow-lg">
+                    <span id="gerar-btn-text">QUERO MINHA NOITE COM A JOYCE! (Pagar via PIX)</span>
+                    <span id="gerar-spinner" class="hidden">
+                        <svg class="animate-spin h-5 w-5 text-white inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                        Gerando seu PIX...
+                    </span>
+                </button>
+            </div>
+
+            <!-- Seção de Pagamento PIX (Hidden initially) -->
+            <div id="pix-section" class="hidden space-y-6">
+                <h3 class="text-xl font-bold text-gray-800 text-center">Último passo: Pague para garantir sua chance!</h3>
+                <p class="text-center text-gray-500 text-sm">Escaneie o QR Code ou use o "Copia e Cola". <br/><strong>Não feche essa página!</strong></p>
+                
+                <!-- QR Code -->
+                <div id="qrcode-container" class="flex justify-center p-4 bg-gray-50 rounded-lg">
+                    <!-- O QR Code será inserido aqui pelo JavaScript -->
+                </div>
+                
+                <!-- PIX Copia e Cola -->
+                <div>
+                    <label for="pix-code-input" class="text-sm font-medium text-gray-700">PIX Copia e Cola</label>
+                    <div class="relative mt-1">
+                        <input type="text" id="pix-code-input" class="w-full p-3 pr-12 border border-gray-300 rounded-lg bg-gray-50 text-sm" readonly>
+                        <button id="copiar-btn" class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-pink-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Status do Pagamento -->
+                <div id="payment-status" class="text-center text-yellow-600 bg-yellow-100 p-3 rounded-lg font-medium flex items-center justify-center gap-2">
+                    <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    Aguardando seu pagamento...
+                </div>
+            </div>
+
+            <!-- Seção de Confirmação (Hidden initially) -->
+            <div id="confirmacao-section" class="hidden text-center space-y-4 py-8">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                    <svg class="w-12 h-12 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Pagamento Aprovado! Sua chance está GARANTIDA!</h2>
+                <p class="text-gray-600">Sua participação na rifa está confirmada. Fique ligado para o sorteio! Você será redirecionado para o conteúdo VIP.</p>
+                <button id="acesso-btn" onclick="window.location.href='https://t.me/+Tw6xKhkJYeg4NGE0'" class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all">
+                    ACESSAR CONTEÚDO VIP AGORA! (Telegram)
+                </button>
+            </div>
+
+            <!-- Raffle Rules Section -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Regras da Rifa (Para sua segurança e clareza)</h3>
+                <ul class="list-disc list-inside text-gray-600 text-sm space-y-2">
+                    <li>O sorteio será realizado pontualmente em <strong>10/07/2025</strong>.</li>
+                    <li>O ganhador será contatado diretamente pelos dados informados no pagamento. Mantenha-os atualizados!</li>
+                    <li>Cada número custa apenas <strong>R$ 1,30</strong>.</li>
+                    <li>Não há limites para sua sorte! Compre quantos números quiser e aumente suas chances de levar a Joyce.</li>
+                    <li>O prêmio "Noite com Joyce Jacob" inclui exatamente o que foi descrito: sem camisinha, anal incluso e motel pago por ela.</li>
+                    <li>Em caso de não conseguir contato com o ganhador após o sorteio, um novo sorteio poderá ser realizado após 7 dias.</li>
+                    <li>Sua privacidade é garantida. Seus dados são usados apenas para a rifa.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Content Section (Previews) -->
-        <div class="p-4 bg-gray-50 grid grid-cols-2 gap-4">
-            <!-- Preview 1 (Image) -->
-            <div class="relative rounded-lg overflow-hidden shadow-md">
-                <img src="https://i.postimg.cc/Dz5hSG3q/Gr-FQBDe-W4-AAC-wl.jpg" alt="Prévia 1" class="w-full h-48 object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                    <p class="text-white text-sm font-semibold">Prévia Imagem 1</p>
-                </div>
-            </div>
-            <!-- Preview 2 (Image) -->
-            <div class="relative rounded-lg overflow-hidden shadow-md">
-                <img src="https://i.postimg.cc/yx3RY67s/Gsk-Vcj-BX0-AAf-Rb0.jpg" alt="Prévia 2" class="w-full h-48 object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                    <p class="text-white text-sm font-semibold">Prévia Imagem 2</p>
-                </div>
-            </div>
-            <!-- Preview 1 (Video/GIF) -->
-            <div class="relative rounded-lg overflow-hidden shadow-md">
-                <video src="https://i.postimg.cc/mr7cJ8MT/F4q-Nql-KW8-AAd3hg.jpg" autoplay loop muted playsinline class="w-full h-48 object-cover"></video>
-                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                    <p class="text-white text-sm font-semibold">Prévia Vídeo 1</p>
-                </div>
-            </div>
-            <!-- Preview 2 (Video/GIF) -->
-            <div class="relative rounded-lg overflow-hidden shadow-md">
-                <video src="https://i.postimg.cc/cChwjTpv/Gq3-MRo-MWg-AA1c-Hc.jpg" autoplay loop muted playsinline class="w-full h-48 object-cover"></video>
-                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                    <p class="text-white text-sm font-semibold">Prévia Vídeo 2</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Placeholder for a post card - Removed as it's not needed with direct previews -->
     </div>
+
+    <!-- Container para Notificações (Toast) -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-red-500 text-white py-2 px-4 rounded-lg shadow-lg text-sm transition-all transform opacity-0 translate-y-full">
+        <!-- Mensagem de erro/sucesso -->
+    </div>
+
+    <!-- JavaScript para a lógica do PIX e cálculo da rifa -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- CONSTANTES E VARIÁVEIS DE ESTADO ---
+        // A API Key e URLs são mantidas a partir do código fornecido pelo usuário para a integração de pagamento.
+        const apiKey = "36165|qb2rN7PVaTsrLXF6QBsCJlBIKMUzcAL3yxfGWhnY1a820a31"; // API Key fornecida pelo usuário
+        const apiUrl = "https://api.pushinpay.com.br/api";
+        const redirectUrl = "https://t.me/+Tw6xKhkJYeg4NGE0"; // URL de redirecionamento para o Telegram VIP
+        const pushcutUrl = 'https://api.pushcut.io/JX60URSeGYXjFKP4bbP9P/notifications/'; // URL para notificação
+        const TICKET_PRICE = 1.30; // Preço de cada número da rifa
+
+        let transactionId = null;
+        let paymentCheckInterval = null;
+        let hasNotified = false;
+        
+        // --- SELETORES DE ELEMENTOS DO DOM ---
+        const quantidadeSlider = document.getElementById('quantidade-slider');
+        const quantidadeDisplay = document.getElementById('quantidade-display');
+        const valorDisplay = document.getElementById('valor-display');
+        const gerarBtn = document.getElementById('gerar-btn');
+        const gerarBtnText = document.getElementById('gerar-btn-text');
+        const gerarSpinner = document.getElementById('gerar-spinner');
+        const copiarBtn = document.getElementById('copiar-btn');
+        const pixCodeInput = document.getElementById('pix-code-input');
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        const toast = document.getElementById('toast');
+
+        const valorSection = document.getElementById('valor-section');
+        const pixSection = document.getElementById('pix-section');
+        const confirmacaoSection = document.getElementById('confirmacao-section');
+        const paymentStatus = document.getElementById('payment-status');
+        
+        // --- FUNÇÕES DE LÓGICA DA RIFA ---
+
+        /**
+         * Atualiza a quantidade de números e o valor total exibidos na tela conforme o slider é movido.
+         */
+        function updateRaffleDetails() {
+            const quantidade = parseInt(quantidadeSlider.value);
+            const valorTotal = (quantidade * TICKET_PRICE).toFixed(2);
+            
+            quantidadeDisplay.textContent = quantidade;
+            valorDisplay.textContent = valorTotal.replace('.', ','); // Formato brasileiro R$ X,XX
+        }
+
+        // --- FUNÇÕES DE PAGAMENTO (Mantidas e Adaptadas do código fornecido) ---
+
+        /**
+         * Exibe uma notificação (toast) na tela.
+         */
+        function showToast(message, type = 'error') {
+            toast.textContent = message;
+            toast.classList.remove('bg-red-500', 'bg-green-500', 'translate-y-full', 'opacity-0');
+            
+            if (type === 'success') {
+                toast.classList.add('bg-green-500');
+            } else {
+                toast.classList.add('bg-red-500');
+            }
+            
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('translate-y-full', 'opacity-0');
+            }, 3000);
+        }
+
+        /**
+         * Gera o QR Code a partir do código PIX.
+         */
+        function generateQRCode(pixCode) {
+            qrcodeContainer.innerHTML = '';
+            const typeNumber = 0;
+            const errorCorrectionLevel = 'L';
+            const qr = qrcode(typeNumber, errorCorrectionLevel);
+            qr.addData(pixCode);
+            qr.make();
+            qrcodeContainer.innerHTML = qr.createImgTag(5, 8);
+            qrcodeContainer.firstChild.classList.add('w-56', 'h-56', 'rounded-lg');
+        }
+
+        /**
+         * Copia o código PIX para a área de transferência.
+         */
+        async function copyPixCode() {
+            const code = pixCodeInput.value;
+            if (!code) return;
+
+            try {
+                // Using document.execCommand('copy') for better iframe compatibility
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                textArea.style.position = 'fixed';
+                textArea.style.top = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast("Código PIX copiado!", 'success');
+            } catch (err) {
+                showToast("Falha ao copiar. Selecione e copie manualmente.", 'error');
+            }
+        }
+
+        /**
+         * Controla o estado de carregamento do botão.
+         */
+        function setButtonLoading(isLoading) {
+            gerarBtn.disabled = isLoading;
+            if (isLoading) {
+                gerarBtnText.classList.add('hidden');
+                gerarSpinner.classList.remove('hidden');
+            } else {
+                gerarBtnText.classList.remove('hidden');
+                gerarSpinner.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Função principal para gerar a cobrança PIX.
+         */
+        async function handleGeneratePix() {
+            setButtonLoading(true);
+
+            const quantidade = parseInt(quantidadeSlider.value);
+            const valorTotal = (quantidade * TICKET_PRICE);
+            
+            // O valor da API precisa ser em centavos e arredondado para evitar problemas de ponto flutuante
+            const valorEmCentavos = Math.round(valorTotal * 100);
+
+            try {
+                const response = await fetch(`${apiUrl}/pix/cashIn`, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${apiKey}`,
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ value: valorEmCentavos })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.qr_code) {
+                    transactionId = data.id;
+                    pixCodeInput.value = data.qr_code;
+                    generateQRCode(data.qr_code);
+
+                    // Transição da UI
+                    valorSection.classList.add('hidden');
+                    pixSection.classList.remove('hidden');
+
+                    // Começa a verificar o pagamento
+                    startPaymentCheck();
+
+                    // Envia notificação (ex: para o Pushcut)
+                    if (!hasNotified) {
+                        fetch(`${pushcutUrl}Rifa Joyce - PIX Gerado R$${valorTotal.toFixed(2)}`);
+                        hasNotified = true;
+                    }
+
+                } else {
+                    const errorMessage = data.message || "Erro desconhecido ao gerar PIX.";
+                    showToast(`Erro: ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error("Erro na API ao gerar PIX:", error);
+                showToast("Falha de comunicação com o sistema de pagamento.");
+            } finally {
+                setButtonLoading(false);
+            }
+        }
+
+        /**
+         * Inicia a verificação periódica do status do pagamento.
+         */
+        function startPaymentCheck() {
+            if (paymentCheckInterval) {
+                clearInterval(paymentCheckInterval);
+            }
+            // Verifica a cada 3 segundos
+            paymentCheckInterval = setInterval(checkPaymentStatus, 3000);
+        }
+        
+        /**
+         * Verifica o status do pagamento na API.
+         */
+        async function checkPaymentStatus() {
+            if (!transactionId) return;
+
+            try {
+                const response = await fetch(`${apiUrl}/transactions/${transactionId}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${apiKey}`,
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.status === "paid") {
+                    handlePaymentSuccess();
+                }
+            } catch (error) {
+                console.error("Erro ao verificar pagamento:", error);
+                clearInterval(paymentCheckInterval);
+                paymentStatus.textContent = "Erro ao verificar. Atualize a página.";
+                paymentStatus.classList.remove('bg-yellow-100', 'text-yellow-600');
+                paymentStatus.classList.add('bg-red-100', 'text-red-600');
+            }
+        }
+
+        /**
+         * Lida com o sucesso do pagamento, atualizando a UI e redirecionando.
+         */
+        function handlePaymentSuccess() {
+            clearInterval(paymentCheckInterval);
+            
+            // Transição da UI
+            pixSection.classList.add('hidden');
+            confirmacaoSection.classList.remove('hidden');
+
+            // Redirecionamento automático após 3 segundos
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 3000);
+        }
+
+        // --- ADICIONANDO EVENT LISTENERS E INICIALIZAÇÃO ---
+        quantidadeSlider.addEventListener('input', updateRaffleDetails);
+        gerarBtn.addEventListener('click', handleGeneratePix);
+        copiarBtn.addEventListener('click', copyPixCode);
+
+        // Inicializa o display com o valor padrão do slider (1 número = R$1.30)
+        updateRaffleDetails();
+    });
+    </script>
 </body>
 </html>
