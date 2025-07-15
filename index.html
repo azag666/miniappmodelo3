@@ -71,6 +71,63 @@
             border: 4px solid white;
             box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
         }
+
+        /* Estilos para o Modal de Desconto */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeInScale 0.3s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -124,7 +181,7 @@
                     Você escolhe o motel na sua região e a Joyce vai até você para essa experiência.
                 </p>
                 <div class="bg-yellow-50 text-yellow-800 p-3 rounded-lg text-sm font-semibold text-center shadow-inner animate-pulse">
-                    📅 Sorteio IMPERDÍVEL: 10 de Julho de 2025 - Não perca!
+                    📅 Sorteio IMPERDÍVEL: 05/08/2025 - Não perca!
                 </div>
             </div>
 
@@ -146,7 +203,7 @@
             
             <!-- Payment/Raffle Ticket Selection Section -->
             <div id="valor-section" class="space-y-6">
-                <h3 class="text-xl font-extrabold text-pink-800 text-center">Garanta sua chance AGORA! Apenas R$1,30 por número!</h3>
+                <h3 class="text-xl font-extrabold text-pink-800 text-center">Garanta sua chance AGORA! Apenas R$3,99 por número!</h3>
                 <p class="text-center text-gray-700 text-sm">
                     Escolha quantos números você quer. Quanto mais números, MAIOR seu tesão e suas chances de levar a Joyce pra casa!
                 </p>
@@ -154,15 +211,15 @@
                 <!-- Display de Quantidade e Valor Total -->
                 <div class="text-center my-6">
                     <span class="text-3xl font-semibold text-gray-700">Você quer <span id="quantidade-display" class="font-extrabold text-pink-600">1</span> número(s)?</span>
-                    <p class="text-5xl font-extrabold text-pink-700 mt-2">TOTAL: R$ <span id="valor-display">1,30</span></p>
+                    <p class="text-5xl font-extrabold text-pink-700 mt-2">TOTAL: R$ <span id="valor-display">3,99</span></p>
                 </div>
 
                 <!-- Slider para Quantidade de Números -->
                 <div class="space-y-3">
-                    <input type="range" id="quantidade-slider" min="1" max="115" value="1" class="w-full">
+                    <input type="range" id="quantidade-slider" min="1" max="37" value="1" class="w-full">
                     <div class="flex justify-between text-xs text-gray-500 font-medium">
                         <span>1 Número</span>
-                        <span>115 Números (Máx. R$149,50)</span>
+                        <span>37 Números (Máx. R$147,63)</span>
                     </div>
                 </div>
 
@@ -221,7 +278,7 @@
                 <ul class="list-disc list-inside text-gray-600 text-sm space-y-2">
                     <li>O NOVO sorteio será realizado pontualmente em <strong>05/08/2025</strong>.</li>
                     <li>O ganhador será contatado diretamente pelos dados informados no pagamento. Mantenha-os atualizados!</li>
-                    <li>Cada número custa apenas <strong>R$ 1,30</strong>.</li>
+                    <li>Cada número custa apenas <strong>R$ 3,99</strong>.</li>
                     <li>Não há limites para sua sorte! Compre quantos números quiser e aumente suas chances de levar a Joyce.</li>
                     <li>O prêmio "Noite com Joyce Jacob" inclui exatamente o que foi descrito: sem camisinha, anal incluso e motel pago por ela.</li>
                     <li>Em caso de não conseguir contato com o ganhador após o sorteio, um novo sorteio poderá ser realizado após 7 dias.</li>
@@ -237,6 +294,25 @@
         <!-- Mensagem de erro/sucesso -->
     </div>
 
+    <!-- Modal de Desconto -->
+    <div id="discount-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal-btn">&times;</span>
+            <h3 class="text-2xl font-bold text-pink-700 mb-4">🎉 OFERTA ESPECIAL! 🎉</h3>
+            <p class="text-gray-800 text-lg mb-6">
+                Compre <span class="font-extrabold text-pink-600">10 números</span> com um super desconto!
+                De <span class="line-through font-semibold">R$ 39,90</span> por apenas <span class="font-extrabold text-green-600">R$ 29,90</span>!
+                Aumente suas chances em 100%!
+            </p>
+            <button id="accept-discount-btn" class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all transform hover:scale-105 shadow-lg">
+                QUERO 10 NÚMEROS COM DESCONTO!
+            </button>
+            <button id="decline-discount-btn" class="w-full mt-3 bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-xl hover:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 transition-all">
+                Não, obrigado(a). Continuar com a seleção atual.
+            </button>
+        </div>
+    </div>
+
     <!-- JavaScript para a lógica do PIX e cálculo da rifa -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -246,12 +322,15 @@
         const apiUrl = "https://api.pushinpay.com.br/api";
         const redirectUrl = "https://t.me/+Tw6xKhkJYeg4NGE0"; // URL de redirecionamento para o Telegram VIP
         const pushcutUrl = 'https://api.pushcut.io/JX60URSeGYXjFKP4bbP9P/notifications/'; // URL para notificação
-        const TICKET_PRICE = 1.30; // Preço de cada número da rifa
+        const TICKET_PRICE = 3.99; // Preço de cada número da rifa
+        const DISCOUNT_QUANTITY = 10; // Quantidade de números para o desconto
+        const DISCOUNT_PRICE = 29.90; // Preço com desconto para 10 números
 
         let transactionId = null;
         let paymentCheckInterval = null;
         let hasNotified = false;
-        
+        let discountApplied = false; // Flag para controlar se o desconto foi aplicado
+
         // --- SELETORES DE ELEMENTOS DO DOM ---
         const quantidadeSlider = document.getElementById('quantidade-slider');
         const quantidadeDisplay = document.getElementById('quantidade-display');
@@ -268,6 +347,12 @@
         const pixSection = document.getElementById('pix-section');
         const confirmacaoSection = document.getElementById('confirmacao-section');
         const paymentStatus = document.getElementById('payment-status');
+
+        // Elementos do Modal de Desconto
+        const discountModal = document.getElementById('discount-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const acceptDiscountBtn = document.getElementById('accept-discount-btn');
+        const declineDiscountBtn = document.getElementById('decline-discount-btn');
         
         // --- FUNÇÕES DE LÓGICA DA RIFA ---
 
@@ -275,11 +360,49 @@
          * Atualiza a quantidade de números e o valor total exibidos na tela conforme o slider é movido.
          */
         function updateRaffleDetails() {
-            const quantidade = parseInt(quantidadeSlider.value);
-            const valorTotal = (quantidade * TICKET_PRICE).toFixed(2);
+            let quantidade = parseInt(quantidadeSlider.value);
+            let valorTotal;
+
+            if (discountApplied && quantidade === DISCOUNT_QUANTITY) {
+                valorTotal = DISCOUNT_PRICE;
+            } else {
+                valorTotal = (quantidade * TICKET_PRICE);
+                // Reset discountApplied if the quantity changes from the discounted amount
+                if (quantidade !== DISCOUNT_QUANTITY) {
+                    discountApplied = false;
+                }
+            }
             
             quantidadeDisplay.textContent = quantidade;
-            valorDisplay.textContent = valorTotal.replace('.', ','); // Formato brasileiro R$ X,XX
+            valorDisplay.textContent = valorTotal.toFixed(2).replace('.', ','); // Formato brasileiro R$ X,XX
+        }
+
+        // --- FUNÇÕES DO MODAL DE DESCONTO ---
+
+        /**
+         * Exibe o modal de desconto.
+         */
+        function showDiscountModal() {
+            discountModal.style.display = 'flex';
+        }
+
+        /**
+         * Esconde o modal de desconto.
+         */
+        function hideDiscountModal() {
+            discountModal.style.display = 'none';
+        }
+
+        /**
+         * Lida com a aceitação do desconto: atualiza o slider para 10 e aplica o preço com desconto.
+         * Em seguida, gera o PIX automaticamente.
+         */
+        async function handleAcceptDiscount() {
+            quantidadeSlider.value = DISCOUNT_QUANTITY;
+            discountApplied = true;
+            updateRaffleDetails(); // Recalcula com o desconto aplicado
+            hideDiscountModal();
+            await handleGeneratePix(true); // Gera o PIX imediatamente, passando true para pular a checagem do modal
         }
 
         // --- FUNÇÕES DE PAGAMENTO (Mantidas e Adaptadas do código fornecido) ---
@@ -359,12 +482,26 @@
 
         /**
          * Função principal para gerar a cobrança PIX.
+         * @param {boolean} skipModalCheck - Se true, ignora a verificação para mostrar o modal de desconto.
          */
-        async function handleGeneratePix() {
+        async function handleGeneratePix(skipModalCheck = false) {
+            const quantidade = parseInt(quantidadeSlider.value);
+            
+            // Se a quantidade for menor que 5 e o desconto ainda não foi aplicado, mostra o modal e retorna.
+            // Esta checagem é ignorada se skipModalCheck for true (ex: vindo do botão "QUERO 10 NÚMEROS COM DESCONTO!")
+            if (quantidade < 5 && !discountApplied && !skipModalCheck) {
+                showDiscountModal();
+                return; // Impede a geração do PIX neste momento
+            }
+
             setButtonLoading(true);
 
-            const quantidade = parseInt(quantidadeSlider.value);
-            const valorTotal = (quantidade * TICKET_PRICE);
+            let valorTotal;
+            if (discountApplied && quantidade === DISCOUNT_QUANTITY) {
+                valorTotal = DISCOUNT_PRICE;
+            } else {
+                valorTotal = (quantidade * TICKET_PRICE);
+            }
             
             // O valor da API precisa ser em centavos e arredondado para evitar problemas de ponto flutuante
             const valorEmCentavos = Math.round(valorTotal * 100);
@@ -470,10 +607,19 @@
 
         // --- ADICIONANDO EVENT LISTENERS E INICIALIZAÇÃO ---
         quantidadeSlider.addEventListener('input', updateRaffleDetails);
-        gerarBtn.addEventListener('click', handleGeneratePix);
+        // Passa false para handleGeneratePix para que a checagem do modal ocorra
+        gerarBtn.addEventListener('click', () => handleGeneratePix(false)); 
         copiarBtn.addEventListener('click', copyPixCode);
 
-        // Inicializa o display com o valor padrão do slider (1 número = R$1.30)
+        // Event listeners para o modal de desconto
+        closeModalBtn.addEventListener('click', hideDiscountModal);
+        declineDiscountBtn.addEventListener('click', () => {
+            discountApplied = false; // Ensure discount is not applied if declined
+            hideDiscountModal();
+        });
+        acceptDiscountBtn.addEventListener('click', handleAcceptDiscount);
+
+        // Inicializa o display com o valor padrão do slider (1 número = R$3.99)
         updateRaffleDetails();
     });
     </script>
